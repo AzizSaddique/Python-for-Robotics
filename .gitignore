@@ -1,1 +1,1 @@
-echo *.cpp > .gitignore
+*.cpp

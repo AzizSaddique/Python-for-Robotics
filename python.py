@@ -646,18 +646,68 @@
 
 
 
-class Robot:
-    def __init__(self,name,battery,speed):
-        self.name=name
-        self.battery= battery
-        self.speed= speed
-    def status(self):
-        print(self.name,"Battery",self.battery,"speed",self.speed)
+# class Robot:
+#     def __init__(self,name,battery,speed):
+#         self.name=name
+#         self.battery= battery
+#         self.speed= speed
+#     def status(self):
+#         print(self.name,"Battery",self.battery,"speed",self.speed)
 
-robot1=Robot("Robo 1",80,15)
-robot2=Robot("Robo 2",60,50)
-# print(robot1.name," ",robot1.battery," ",robot1.speed)
-# print(robot2.name," ",robot2.battery," ",robot2.speed)
+# robot1=Robot("Robo 1",80,15)
+# robot2=Robot("Robo 2",60,50)
+# # print(robot1.name," ",robot1.battery," ",robot1.speed)
+# # print(robot2.name," ",robot2.battery," ",robot2.speed)
 
-robot1.status()
-robot2.status()
+# robot1.status()
+# robot2.status()
+
+# lambda function and map, Filter
+
+# distances = [5, 12, 3, 20, 8, 15]
+# distance_filter=list(filter(lambda x:x>=10,distances))
+# print(distance_filter)
+
+# speeds = [10, 20, 30, 40]
+# speed_double=list(map(lambda x:x*2,speeds))
+# print(speed_double)
+
+# def sensor_data():
+#     yield 10
+#     yield 20
+#     yield 30
+# d=sensor_data()
+# print(next(d))
+# print(next(d))
+# print(next(d))
+
+# def robot_battery():
+#     # 3 battery readings: 90, 70, 45
+#     yield 90
+#     yield 70
+#     yield 45
+# for battery in robot_battery():
+#     print("Battery:",battery)
+    
+# def sensor_readings():
+#     yield 10
+#     yield 25
+#     yield 5
+#     yield 30
+# for b in sensor_readings():
+#     if b>10:
+#         print('greater:',b)
+
+# json
+        
+import json
+
+robot = {
+    "name": "Robo1",
+    "battery": 85,
+    "speed": 20
+}
+
+data = json.dumps(robot)
+
+print(data)
