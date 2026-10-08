@@ -700,14 +700,65 @@
 
 # json
         
-import json
+# import json
 
-robot = {
-    "name": "Robo1",
-    "battery": 85,
-    "speed": 20
-}
+# robot = {
+#     "name": "Robo1",
+#     "battery": 85,
+#     "speed": 20
+# }
 
-data = json.dumps(robot)
+# data = json.dumps(robot)
 
-print(data)
+# print(data)
+
+
+
+# import numpy as np
+# temperature=np.array([85, 70, 90, 60, 75])
+# print(np.mean(temperature))
+# print(np.max(temperature))
+# print(np.min(temperature))
+
+
+import numpy as np
+
+# temperature = np.array([24, 26, 28, 30, 32, 34])
+# first=temperature[2]
+# second=temperature[3]
+# third=temperature[1:4]
+# fourth=temperature[-3:]
+# print(first)
+# print(second)
+# print(third)
+# print(fourth)
+
+
+# sensor = np.array([
+#     [10, 20, 30],
+#     [40, 50, 60]
+# ])
+# print(np.sum(sensor, axis=0))
+# print(np.sum(sensor, axis=1))
+
+
+import numpy as np
+
+# temperature = np.array([24, 31, 28, 35, 22, 40])
+
+# hot = temperature > 30
+
+# print(hot)
+# print(temperature[hot])
+
+
+# temperature = np.array([10, 25, 40, 15, 60, 30])
+# hot=temperature[(temperature>20)&(temperature<50)]
+# print(hot)
+
+
+sensor = np.array([10, 25, 40, 15, 60, 30])
+
+indices = np.where(sensor > 30)
+
+print(indices)
