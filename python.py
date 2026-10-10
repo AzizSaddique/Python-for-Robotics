@@ -757,8 +757,121 @@ import numpy as np
 # print(hot)
 
 
-sensor = np.array([10, 25, 40, 15, 60, 30])
+# sensor = np.array([10, 25, 40, 15, 60, 30])
 
-indices = np.where(sensor > 30)
+# indices = np.where(sensor > 30)
 
-print(indices)
+# print(indices)
+
+# import numpy as np
+
+# a = np.arange(2, 11, 2)
+# b = np.linspace(0, 1, 5)
+# c = np.zeros((2, 2))
+
+# print(a)
+# print(b)
+# print(c)
+
+
+
+# import numpy as np
+
+# a = np.zeros((2, 3))
+# b = np.ones((3, 2))
+
+# print(a)
+# print(b)
+
+
+# numbers = np.arange(0, 10, 2)
+# print(numbers)
+
+# angles = np.linspace(0, 90, 4)
+# print(angles)
+
+# import numpy as np
+
+# time = np.arange(0, 12, 2)
+# temperature = np.array([24, 25, 27, 29, 28, 26])
+
+# print("Time:", time)
+# print("Temperature:", temperature)
+# print("Average:", np.mean(temperature))
+# print("Maximum:", np.max(temperature))
+
+# import numpy as np
+
+# a = np.arange(2, 11, 2)
+# b = np.linspace(0, 1, 5)
+# c = np.zeros((2, 2))
+
+# print(a)
+# print(b)
+# print(c)
+
+
+
+# import numpy as np
+
+# sensor = np.array([10, 20, 30])
+
+# result = sensor + 5
+
+# print(result)
+
+# import numpy as np
+
+# a = np.array([1, 2, 3])
+# b = np.array([4, 5, 6])
+
+# print(a * b)
+# print(np.dot(a, b))
+
+# import numpy as np
+
+# a = np.array([2, 3, 4])
+# b = np.array([5, 6, 7])
+
+# print(a * b)
+# print(np.dot(a, b))
+
+
+import numpy as np
+
+A = np.array([
+    [1, 2],
+    [3, 4]
+])
+
+B = np.array([
+    [5, 6],
+    [7, 8]
+])
+
+print(A * B)
+print(A @ B)
+
+import numpy as np
+
+temperature = np.array([24, 31, 28, 35, 22, 40])
+
+print("Average:", np.mean(temperature))
+print("Maximum:", np.max(temperature))
+print("Minimum:", np.min(temperature))
+print("Hot readings:", temperature[temperature > 30])
+print("Hot indices:", np.where(temperature > 30))
+
+
+import numpy as np
+
+sensor = np.array([12, 25, 38, 17, 45, 30])
+
+print("A:", np.mean(sensor))
+print("B:", sensor[sensor > 25])
+print("C:", np.where(sensor > 25))
+print("D:", sensor.reshape(2, 3))
+
+
+##Ros2 practice started now
+
