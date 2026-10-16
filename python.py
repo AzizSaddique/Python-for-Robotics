@@ -875,3 +875,44 @@ print("D:", sensor.reshape(2, 3))
 
 ##Ros2 practice started now
 
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+
+class RobotSubscriber(Node):
+
+    def __init__(self):
+        super().__init__('robot_subscriber')
+
+        self.subscription = self.create_subscription(
+            String,
+            'robot_status',
+            self.listener_callback,
+            10
+        )
+
+    def listener_callback(self, msg):
+        self.get_logger().info(
+            f'Received: {msg.data}'
+        )
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    node = RobotSubscriber()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
