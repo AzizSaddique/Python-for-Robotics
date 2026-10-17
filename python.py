@@ -966,3 +966,63 @@ def main(args=None):
 if __name__ == '__main__':
     main()
 
+
+
+# For client
+
+import rclpy
+from rclpy.node import Node
+from example_interfaces.srv import AddTwoInts
+
+
+class AddClient(Node):
+
+    def __init__(self):
+        super().__init__('add_client')
+
+        self.client = self.create_client(
+            AddTwoInts,
+            'add_two_ints'
+        )
+
+        self.get_logger().info('Waiting for addition service...')
+
+        while not self.client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('Service not available yet...')
+
+        self.send_request()
+
+    def send_request(self):
+        request = AddTwoInts.Request()
+        request.a = 2
+        request.b = 3
+
+        self.future = self.client.call_async(request)
+        self.future.add_done_callback(self.response_callback)
+
+    def response_callback(self, future):
+        try:
+            response = future.result()
+            self.get_logger().info(f'Result: {response.sum}')
+        except Exception as e:
+            self.get_logger().error(f'Service call failed: {e}')
+
+        rclpy.shutdown()
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = AddClient()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
